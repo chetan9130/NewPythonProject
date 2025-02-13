@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload & Download</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        .container { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload and Download Files</h2>
+        <input type="file" id="fileInput">
+        <button onclick="uploadFile()">Upload</button>
+        <ul id="files"></ul>
+    </div>
+
+    <script>
+        function uploadFile() {
+            let fileInput = document.getElementById("fileInput");
+            let filesList = document.getElementById("files");
+            if (fileInput.files.length > 0) {
+                let file = fileInput.files[0];
+                let link = document.createElement("a");
+                link.href = URL.createObjectURL(file);
+                link.download = file.name;
+                link.textContent = file.name;
+                let listItem = document.createElement("li");
+                listItem.appendChild(link);
+                filesList.appendChild(listItem);
+                fileInput.value = "";
+            } else {
+                alert("Please select a file.");
+            }
+        }
+    </script>
+</body>
+</html>
