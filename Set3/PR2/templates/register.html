@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<form method="post">
+    <table>
+        <tr
+            <th colspan="2">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {{messages}}
+                    {% endif %}
+                {% endwith %}
+            </th>
+        <tr>
+            <th>Name:</th>
+            <td><input name="name" type="text"></td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td><input name="email" type="text"></td>
+        </tr>
+        <tr>
+            <th>Password:</th>
+            <td><input name="password" type="Password"></td>
+        </tr>
+        <tr>
+            <th>re_password:</th>
+            <td><input name="re_password" type="Password"></td>
+        </tr>
+        <tr>
+            <th colspan="2"><input type="submit"></th>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
